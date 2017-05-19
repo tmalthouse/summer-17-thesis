@@ -1,0 +1,506 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  19 MAY 2017 07:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**2017-05-19-tex-comet-slurm-docmtn.tex
+(./2017-05-19-tex-comet-slurm-docmtn.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count90
+))
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 142.
+)
+(./2017-05-19-tex-comet-slurm-docmtn.aux)
+\openout1 = `2017-05-19-tex-comet-slurm-docmtn.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=430.00462pt
+* \textheight=556.47656pt
+* \oddsidemargin=19.8752pt
+* \evensidemargin=19.8752pt
+* \topmargin=-13.87262pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count91
+\scratchdimen=\dimen113
+\scratchbox=\box26
+\nofMPsegments=\count92
+\nofMParguments=\count93
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count94
+\MPscratchDim=\dimen114
+\MPnumerator=\count95
+\makeMPintoPDFobject=\count96
+\everyMPtoPDFconversion=\toks18
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 22.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+ [4] [5]
+[6] [7] [8]
+Overfull \hbox (58.63383pt too wide) in paragraph at lines 375--375
+[]  \OT1/cmtt/m/n/10.95 726  cp ChaNGa charmrun /oasis/scratch/comet/antpitta/t
+emp_project/testcosmo-comet/[] 
+ []
+
+[9]
+Missing character: There is no ¨ in font cmr10!
+Missing character: There is no ¨ in font cmr10!
+ [10] [11] [12] [13] [14]
+Overfull \hbox (127.61809pt too wide) in paragraph at lines 627--627
+[]  \OT1/cmtt/m/n/10.95 872  ./build LIBS mpi-linux-x86_64 icc  smp   ifort  -j
+8  --with-production --enable-lbuserdata[] 
+ []
+
+[15]
+Overfull \hbox (133.36678pt too wide) in paragraph at lines 664--664
+[]  \OT1/cmtt/m/n/10.95 879  ./build LIBS mpi-linux-x86_64 mpicc  smp mpif90  -
+j8  --with-production --enable-lbuserdata[] 
+ []
+
+
+Overfull \hbox (127.61809pt too wide) in paragraph at lines 678--678
+[]  \OT1/cmtt/m/n/10.95 880  ./build LIBS mpi-linux-x86_64 mpicxx smp ifort  -j
+8  --with-production --enable-lbuserdata[] 
+ []
+
+[16] [17]
+Overfull \hbox (6.89565pt too wide) in paragraph at lines 792--792
+[]  \OT1/cmtt/m/n/10.95 906  cp ChaNGa /oasis/scratch/comet/antpitta/temp_proje
+ct/testcosmo-comet/[] 
+ []
+
+[18] [19] [20] [21]
+Overfull \hbox (568.89867pt too wide) in paragraph at lines 973--973
+ []\OT1/cmtt/m/n/10.95 #  ONLY FOR VERBS ./charmrun +p 24 ++mpiexec ++remote-sh
+ell $HOME/bin/mympiexec $PWD/ChaNGa -v 1 -p 4096 +balancer MultistepLB_notopo d
+wf1.2048.param >& DIAGs.24.cha_ibv[] 
+ []
+
+
+Overfull \hbox (103.25496pt too wide) in paragraph at lines 973--973
+ []\OT1/cmtt/m/n/10.95 ibrun -v ./ChaNGa +p 23 ++ppn 23 -v 1 +balancer Multiste
+pLB_notopo cube300.param >& DIAG[] 
+ []
+
+
+Overfull \hbox (143.49577pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 a.  What does the pound sign mean?  In some contexts the
+ pound sign is a comment, but NOT here.[] 
+ []
+
+
+Overfull \hbox (195.23396pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 b. /bin is understandable as a directory where applicati
+ons live, and maybe /bash  as bourne again shell[] 
+ []
+
+
+Overfull \hbox (517.16048pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 What code is this written in?  It doesn't look like a no
+rmal script.  The  ``--partition'' looks like a long option.  No idea about the
+ equals sign and compute.[] 
+ []
+
+
+Overfull \hbox (212.48003pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 Where do I find out about these questions? The Comet use
+r manual might give a hint but not very explicitly.[] 
+ []
+
+
+Overfull \hbox (442.42754pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 The function of this line is clear, i.e. specifies the n
+umber of nodes.  Wait, I am confusing processors and nodes. Probably mentioned 
+in astro 598[] 
+ []
+
+[22]
+Overfull \hbox (80.26021pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 The definition of node is on the XSEDE Oakridge site.  H
+ow many processors per node?[] 
+ []
+
+
+Overfull \hbox (5.52727pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 a single dash in front of the ``t'' means the short form
+ of the option.[] 
+ []
+
+
+Overfull \hbox (379.19197pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 Q: Uppercase matters?  Looks like it from the man page b
+elow -- cannot put it in verbatim mode  because we are already in verbatim mode
+.[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 Identify which environment variables are p
+ropagated to the[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 batch job.  Multiple environment variable 
+names should  be[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 comma separated.  Environment variable nam
+es may be speci-[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 fied to propagate the current  value  of  
+those  variables[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 (e.g.  "--export=EDITOR") or specific valu
+es for the vari-[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 ables may be exported (e.g.. "--export=EDI
+TOR=/bin/vi") in[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 addition to the environment variables that
+ would otherwise[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 be set.  This option particularly importan
+t for jobs  that[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 are  submitted  on  one cluster and execut
+e on a different[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 cluster (e.g. with different paths). By de
+fault all  envi-[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 ronment  variables are propagated. If the 
+argument is NONE[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 or  specific  environment   variable   nam
+es,   then   the[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 --get-user-env option will implicitly be s
+et to load other[] 
+ []
+
+Missing character: There is no Õ in font cmtt10!
+
+Overfull \hbox (5.52727pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 environment variables based upon the users
+  configuration[] 
+ []
+
+[23]
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 User  to  receive  email  notification of 
+state changes as[] 
+ []
+
+
+Overfull \hbox (11.27596pt too wide) in paragraph at lines 1076--1076
+ []              \OT1/cmtt/m/n/10.95 defined by --mail-type.  The default value
+ is the  submit-[] 
+ []
+
+
+Overfull \hbox (28.52202pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 http://depts.washington.edu/astron/w/index.php?title=Res
+earch:ChaNGa_Issues[] 
+ []
+
+
+Overfull \hbox (22.77333pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 charmrun +p<procs> ++mpiexec ++remote-shell mympiexec Ch
+aNGa cosmo.param''[] 
+ []
+
+
+Overfull \hbox (22.77333pt too wide) in paragraph at lines 1076--1076
+ []\OT1/cmtt/m/n/10.95 processor is synonymous with core.  For example, ``+p<pr
+ocs>'' means +p 23[] 
+ []
+
+[24] [25] <intro-slurm-2-commands.png, id=88, 699.61375pt x 423.5825pt>
+File: intro-slurm-2-commands.png Graphic file (type png)
+
+<use intro-slurm-2-commands.png>
+Package pdftex.def Info: intro-slurm-2-commands.png used on input line 1123.
+(pdftex.def)             Requested size: 361.34999pt x 218.78406pt.
+
+
+LaTeX Warning: File `intro-slurm-3-commands job-step.png' not found on input li
+ne 1130.
+
+<intro-slurm-3-commands job-step.png, id=90, 710.655pt x 408.52625pt>
+File: intro-slurm-3-commands job-step.png Graphic file (type png)
+
+<use intro-slurm-3-commands job-step.png>
+Package pdftex.def Info: intro-slurm-3-commands job-step.png used on input line
+ 1130.
+(pdftex.def)             Requested size: 361.34999pt x 207.7285pt.
+
+
+LaTeX Warning: File `intro-slurm-3-commands mpirun.png' not found on input line
+ 1137.
+
+<intro-slurm-3-commands mpirun.png, id=91, 677.53125pt x 416.55624pt>
+File: intro-slurm-3-commands mpirun.png Graphic file (type png)
+
+<use intro-slurm-3-commands mpirun.png>
+Package pdftex.def Info: intro-slurm-3-commands mpirun.png used on input line 1
+137.
+(pdftex.def)             Requested size: 361.34999pt x 222.1721pt.
+
+
+LaTeX Warning: File `intro-slurm-3-commands sbatch.png' not found on input line
+ 1145.
+
+<intro-slurm-3-commands sbatch.png, id=92, 642.4pt x 289.08pt>
+File: intro-slurm-3-commands sbatch.png Graphic file (type png)
+
+<use intro-slurm-3-commands sbatch.png>
+Package pdftex.def Info: intro-slurm-3-commands sbatch.png used on input line 1
+145.
+(pdftex.def)             Requested size: 361.34999pt x 162.6115pt.
+ [26 <./intro-slurm-2-commands.png>]
+[27 <./intro-slurm-3-commands job-step.png> <./intro-slurm-3-commands mpirun.pn
+g>] [28 <./intro-slurm-3-commands sbatch.png>] [29] [30]
+(./2017-05-19-tex-comet-slurm-docmtn.aux) ) 
+Here is how much of TeX's memory you used:
+ 2326 strings out of 493089
+ 33420 string characters out of 6134842
+ 99673 words of memory out of 5000000
+ 5785 multiletter control sequences out of 15000+600000
+ 10947 words of font info for 42 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,6n,26p,909b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmtt10.pfb>
+Output written on 2017-05-19-tex-comet-slurm-docmtn.pdf (30 pages, 811222 bytes
+).
+PDF statistics:
+ 137 PDF objects out of 1000 (max. 8388607)
+ 89 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+
