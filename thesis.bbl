@@ -1,92 +1,70 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{9}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{{\tt #1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
 
-\bibitem[{Angel(2000)}]{angel:2000}
-Angel, E. (2000).
-\newblock {\em Interactive Computer Graphics : A Top-Down Approach with
-  OpenGL\/}.
-\newblock Boston, MA: Addison Wesley Longman.
+\bibitem[{Carroll \& Ostlie(2006)}]{modern-astrophysics}
+Carroll, B.~W., \& Ostlie, D.~A. (2006).
+\newblock {\em An Introduction to Modern Astrophysics (2nd Edition)\/}.
+\newblock Pearson.
+\urlprefix\url{https://www.amazon.com/Introduction-Modern-Astrophysics-2nd/dp/0805304029?SubscriptionId=0JYN1NVW651KCA56C102&tag=techkie-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0805304029}
 
-\bibitem[{Angel(2001{\natexlab{a}})}]{angel:2001}
-Angel, E. (2001{\natexlab{a}}).
-\newblock {\em Batch-file Computer Graphics : A Bottom-Up Approach with
-  QuickTime\/}.
-\newblock Boston, MA: Wesley Addison Longman.
+\bibitem[{Debattista et~al.(2016)Debattista, Ness, Gonzalez, Freeman, Zoccali,
+  \& Minniti}]{deba-milky-16}
+Debattista, V.~P., Ness, M., Gonzalez, O.~A., Freeman, K., Zoccali, M., \&
+  Minniti, D. (2016).
+\newblock Separation of stellar populations by an evolving bar: Implications
+  for the bulge of the milky way.
+\newblock ArXiv:1611.09023.
 
-\bibitem[{Angel(2001{\natexlab{b}})}]{angel:2002a}
-Angel, E. (2001{\natexlab{b}}).
-\newblock {\em test second book by angel\/}.
-\newblock Boston, MA: Wesley Addison Longman.
+\bibitem[{Erwin \& Debattista(2016)}]{deba-bars-16}
+Erwin, P., \& Debattista, V.~P. (2016).
+\newblock Caught in the act: Direct detection of galactic bars in the buckling
+  phase.
+\newblock {\em The Astrophysical Journal Letters\/}, {\em 825\/}(2), L30.
+\urlprefix\url{http://stacks.iop.org/2041-8205/825/i=2/a=L30}
 
-\bibitem[{Deussen \& Strothotte(2000)}]{deussen:2000}
-Deussen, O., \& Strothotte, T. (2000).
-\newblock Computer-generated pen-and-ink illustration of trees.
-\newblock {\em ``Proceedings of'' SIGGRAPH 2000\/}, (pp. 13--18).
+\bibitem[{Eskridge et~al.(2000)Eskridge, Frogel, Pogge, Quillen, Davies, DePoy,
+  Houdashelt, Kuchinski, Ramírez, Sellgren, Terndrup, \&
+  Tiede}]{eskridge-barred-00}
+Eskridge, P.~B., Frogel, J.~A., Pogge, R.~W., Quillen, A.~C., Davies, R.~L.,
+  DePoy, D.~L., Houdashelt, M.~L., Kuchinski, L.~E., Ramírez, S.~V., Sellgren,
+  K., Terndrup, D.~M., \& Tiede, G.~P. (2000).
+\newblock The frequency of barred spiral galaxies in the near-infrared.
+\newblock {\em The Astronomical Journal\/}, {\em 119\/}(2), 536.
+\urlprefix\url{http://stacks.iop.org/1538-3881/119/i=2/a=536}
 
-\bibitem[{Fisher et~al.(1997)Fisher, Perkins, Walker, \& Wolfart}]{hipr:1997}
-Fisher, R., Perkins, S., Walker, A., \& Wolfart, E. (1997).
-\newblock {\em Hypermedia Image Processing Reference\/}.
-\newblock New York, NY: John Wiley \& Sons.
+\bibitem[{Gardner et~al.(2014)Gardner, Debattista, Robin, V\'asquez, \&
+  Zoccali}]{gardner-insights-14}
+Gardner, E., Debattista, V.~P., Robin, A.~C., V\'asquez, S., \& Zoccali, M.
+  (2014).
+\newblock N-body simulation insights into the x-shaped bulge of the milky way:
+  kinematics and distance to the galactic centre.
+\newblock {\em Monthly Notices of the Royal Astronomical Society\/}, {\em
+  438\/}(4), 3275.
+\urlprefix\url{+ http://dx.doi.org/10.1093/mnras/stt2430}
 
-\bibitem[{Gooch \& Gooch(2001{\natexlab{a}})}]{goochandgooch:2001}
-Gooch, B., \& Gooch, A. (2001{\natexlab{a}}).
-\newblock {\em {Non-Photorealistic Rendering}\/}.
-\newblock Natick, Massachusetts: A K Peters.
+\bibitem[{Malthouse()}]{tmalt-trajectory}
+Malthouse, T. (????).
+\newblock Trajectory: an n-body simulator in c, using simd vector extensions
+  and opencl for maximum performance.
+\newblock \url{https://github.com/wisdomgroup/trajectory}.
 
-\bibitem[{Gooch \& Gooch(2001{\natexlab{b}})}]{goochandgooch:2001a}
-Gooch, B., \& Gooch, A. (2001{\natexlab{b}}).
-\newblock {\em Test second book by gooches\/}.
-\newblock Natick, Massachusetts: A K Peters.
+\bibitem[{{Merritt} \& {Sellwood}(1994)}]{merritt-bends-94}
+{Merritt}, D., \& {Sellwood}, J.~A. (1994).
+\newblock {Bending instabilities in stellar systems}.
+\newblock {\em Astrophysical Journal\/}, {\em 425\/}, 551--567.
 
-\bibitem[{Hertzmann \& Zorin(2000)}]{hertzmann:2000}
-Hertzmann, A., \& Zorin, D. (2000).
-\newblock Illustrating smooth surfaces.
-\newblock {\em Proceedings of SIGGRAPH 2000\/}, {\em 5\/}(17), 517--526.
+\bibitem[{of~Washington()}]{changa-wiki}
+of~Washington, U. (????).
+\newblock {ChaNGa (Charm N-body GrAvity solver)}.
+\newblock \url{https://github.com/N-BodyShop/changa/wiki/ChaNGa}.
 
-\bibitem[{Jain(1989)}]{jain:1989}
-Jain, A.~K. (1989).
-\newblock {\em Fundamentals of Digital Image Processing\/}.
-\newblock Englewood Cliffs, New Jersey: Prentice-Hall.
-
-\bibitem[{Molina \& Borkovec(1994)}]{Molina1994}
-Molina, S.~T., \& Borkovec, T.~D. (1994).
-\newblock The {P}enn {S}tate worry questionnaire: Psychometric properties and
-  associated characteristics.
-\newblock In G.~C.~L. Davey, \& F.~Tallis (Eds.), {\em Worrying: Perspectives
-  on theory, assessment and treatment\/}, (pp. 265--283). New York: Wiley.
-
-\bibitem[{Noble(2002)}]{noble:2002}
-Noble, S.~G. (2002).
-\newblock {\em Turning images into simple line-art\/}.
-\newblock Undergraduate thesis, Reed College.
-
-\bibitem[{Reed{\ }College(2007)}]{reedweb:2007}
-Reed{\ }College (2007).
-\newblock Latex your document.
-\urlprefix\url{http://web.reed.edu/cis/help/LaTeX/index.html}
-
-\bibitem[{Russ(1995)}]{russ:1995}
-Russ, J.~C. (1995).
-\newblock {\em {The Image Processing Handbook, Second Edition}\/}.
-\newblock Boca Raton, Florida: CRC Press.
-
-\bibitem[{Salisbury et~al.(1997)Salisbury, Wong, Hughes, \&
-  Salesin}]{salisbury:1997}
-Salisbury, M.~P., Wong, M.~T., Hughes, J.~F., \& Salesin, D.~H. (1997).
-\newblock Orientable textures for image-based pen-and-ink illustration.
-\newblock {\em ``Proceedings of'' SIGGRAPH 97\/}, (pp. 401--406).
-
-\bibitem[{Savitch(2001)}]{savitch:2001}
-Savitch, W. (2001).
-\newblock {\em JAVA: An Introduction to Computer Science \& Programming\/}.
-\newblock Upper Saddle River, New Jersey: Prentice Hall.
-
-\bibitem[{Wong(1999)}]{wong:1999}
-Wong, E. (1999).
-\newblock {\em {Artistic Rendering of Portrait Photographs}\/}.
-\newblock Master's thesis, Cornell University.
+\bibitem[{Sparke \& Gallagher(2000)}]{galaxies-in-universe}
+Sparke, L.~S., \& Gallagher, J.~S. (2000).
+\newblock {\em Galaxies in the Universe: An Introduction\/}.
+\newblock Cambridge University Press.
+\urlprefix\url{https://www.amazon.com/Galaxies-Universe-Introduction-Linda-Sparke/dp/0521592410?SubscriptionId=0JYN1NVW651KCA56C102&tag=techkie-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=0521592410}
 
 \end{thebibliography}
