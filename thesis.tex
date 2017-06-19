@@ -37,15 +37,18 @@
 \usepackage[hyphens]{url}
 \usepackage{rotating}
 \usepackage{natbib}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.5}
+\usepackage[alsoload=astro]{siunitx}
 % Comment out the natbib line above and uncomment the following two lines to use the new
 % biblatex-chicago style, for Chicago A. Also make some changes at the end where the
 % bibliography is included.
 %\usepackage{biblatex-chicago}
 %\bibliography{thesis}
 
-% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+\usepackage{fbb} % other fonts are available like times, bookman, charter, palatino
 
-\title{N-Body Simulations}
+\title{N-Body Simulations of Barred Galaxies}
 \author{Thomas B Malthouse}
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{Summer 2017}
@@ -55,15 +58,16 @@
 %\altadvisor{Your Other Advisor}
 %%% Remember to use the correct department!
 \department{Physics}
-% if you're writing a thesis in an interdisciplinary major,
-% uncomment the line below and change the text as appropriate.
-% check the Senior Handbook if unsure.
-%\thedivisionof{The Established Interdisciplinary Committee for}
-% if you want the approval page to say "Approved for the Committee",
-% uncomment the next line
-%\approvedforthe{Committee}
 
-\setlength{\parskip}{0pt}
+
+\setlength{\parskip}{1.5em}
+
+\DeclareSIUnit[]\solar
+{\mathrm{\ensuremath{M}}_\odot}
+\DeclareSIUnit[]\year
+{\mathrm{\ensuremath{yr}}}
+
+
 %%
 %% End Preamble
 %%
@@ -136,337 +140,111 @@
 % \onehalfspacing
 % \doublespacing
 
-	Welcome to the \LaTeX\ thesis template. If you've never used \TeX\ or \LaTeX\ before, you'll have an initial learning period to go through, but the results of a nicely formatted thesis are worth it for more than the aesthetic benefit: markup like \LaTeX\ is more consistent than the output of a word processor, much less prone to corruption or crashing and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is going to be about twice as large and complex as anything you've written before, taxing Word's capabilities. If you're still on the fence about  using \LaTeX, read the Introduction to LaTeX on the CUS site as well as skim the following template and give it a few weeks. Pretty soon all the markup gibberish will become second nature.
+The Milky Way is an entirely unextraordinary galaxy. Its hallmark spiral arms---visible in the night sky[[a bit more work here -- visible in what sense? from what angle? by whom -- a putative observe in the Andromeda galaxy]], stretching from horizon to horizon---are shared by about 60\% of galaxies in our universe \citep{apm-bgc}. A bar---a large collection of stars passing through the galactic center, prominent in renderings of the Milky Way [[hmm ... renderings? artist's conceptions?  I have never actually seen  the data or an artist's conception of the the MW bar.]]---is also found around two in three other spiral galaxies---meaning about 40\% of known galaxies are of the same classification as ours. [[I presume you mean the b in Hubble classification -- you need a couple of sentences to make that point clear to, say, a fourth reader -- this part of the thesis is the intro. and that part of a thesis ``should'' be understandable to a professor of English, say.]] These extensive similarities mean that studying the evolution and structure of the Milky Way can provide insights about galactic behavior in general, and that observing other galaxies can reveal the past and future of out own. [[very nice concluding sentence.]]
 
-\section{Why use it?}
+\section*{Disks}
+The Milky Way has two main disks which hold the vast majority of visible matter in the galaxy and give rise to its spiral structure. The \emph{thin disk} is the more visible of the two, composed mainly of main-sequence stars and clouds of gas and dust \citep{galaxies-in-universe}. Its vertical density scale height---the distance over which its density decreases by a factor of $e$---is about $\SI{350}{\parsec}$---very thin compared to its radius of about $\SI{25}{\kilo\parsec}$. This thinness comes from its young age, since the stars that compose it are less likely to have had their orbits perturbed---especially in the chaotic period about $\SI{9}{\giga\year}$ ago. The thin disk accounts for about 97\% of the galaxy's (normal) mass and holds nearly all galactic dynamism and stellar formation. [[Nicely done ... gonna keep dynamism, I will be interested in picking up any reaction.]]
 
-\LaTeX\ does a great job of formatting tables and paragraphs. Its line-breaking algorithm was the subject of a PhD.\thinspace thesis. It does a fine job of automatically inserting ligatures, and to top it all off it is the only way to typeset good-looking mathematics.
+The other disk, referred to as the \emph{dark disk} or \emph{thick disk}, is far older and less dynamic \citep{starrfield-thick-disk}.[[]] Composed of stars formed $\SI{10}{\giga\year}$ to $\SI{12}{\giga\year}$ ago, it is very faint and hard to detect---all the bright stars burned out long ago, and the only ones left are low-magnitude red dwarfs and K-class stars. These stars' orbits also tend to be less regular, since they've had time to be perturbed and pushed into new orbits, especially during the chaotic initial organization of the Milky Way $\SI{10}{\giga\year}$ ago---resulting in a scale height of about $\SI{1}{\kilo\parsec}$. Because its stars are so steady-burning and the complete lack of gas and dust, the thick disk is very stable and exhibits none of the dynamism seen in the thin disk. It accounts for only about 3\% of the regular matter in the galaxy, with a total mass of about $\SI{1e10}{\solar}$.
+Note that the name \emph{dark disk} refers to the low luminosity of the stars within, and has no relation to the dark matter discussed below.
 
-\section{Who should use it?}
+\section*{Metallicity and Age}
+The easiest way to determine which disk a star is in is to look at its metallicity (the amount of metal in the star.) This can be measured by looking at the strength of various emission spectra, since elements like iron have very distinct emission lines. These heavy elements are only formed when large stars reach the end of their life, and so their concentration has steadily increased over time as more large stars form and die. Old stars dating back to the formation of the galaxy (like those of the thick disk) tend to have very ``clean'' emission spectra, with very little other than hydrogen and helium, while younger stars have strong magnesium and iron lines.
 
-Anyone who needs to use math, tables, a lot of figures, complex cross-references, IPA or who just cares about the final appearance of their document should use \LaTeX. At Reed, math majors are required to use it, most physics majors will want to use it, and many other science majors may want it also.
+Metallicity isn't a perfect way to measure the age of a star. Metal concentrations vary widely across both space and time, and two stars forming at the same time may have very different metallicities. However, when looking at a large and statistically representative sample of stars, a high metallicity indicates a younger age \citep[pp. 885]{modern-astrophysics}.
 
-    \chapter{The First}
-    	This is the first page of the first chapter. You may delete the contents of this chapter so you can add your own text; it's just here to show you some examples.
+\section*{The Stellar Halo}
 
-\section{References, Labels, Custom Commands and Footnotes}
-It is easy to refer to anything within your document using the \texttt{label} and \texttt{ref} tags.  Labels must be unique and shouldn't use any odd characters; generally sticking to letters and numbers (no spaces) should be fine. Put the label on whatever you want to refer to, and put the reference where you want the reference. \LaTeX\ will keep track of the chapter, section, and figure or table numbers for you.
+The disks extend to about $\SI{25}{\kilo\parsec}$ from the galactic center, and contain practically all the mass within that radius. Past that point, however, stars are distributed far more chaotically. The thin plane disappears, and stellar orbits become more spherically distributed. The composition of individual stars in the halo is similar to those in the thick disk---old, dim, and unchanging. However, the halo is also home to many globular clusters, groups of tens or hundreds of thousands of stars that act like small galaxies in their own right. These clusters continue to create new stars, and most of the light coming from the halo is from globular clusters.
 
-\subsection{References and Labels}
-Sometimes you'd like to refer to a table or figure, e.g. you can see in Figure \ref{subd2} that you can rotate figures. Start by labeling your figure or table with the label command (\verb=\label{labelvariable}=) below the caption (see the chapter on graphics and tables for examples). Then when you would like to refer to the table or figure, use the ref command (\verb=\ref{labelvariable}=). Make sure your label variables are unique; you can't have two elements named ``default.'' Also, since the reference command only puts the figure or table number, you will have to put  ``Table'' or ``Figure'' as appropriate, as seen in the following examples:
+Measurements of stellar velocities have long predicted that the mass of the halo dominates the mass of the galaxy---about 95\% of galactic mass must be in the halo for the observed velocity curves to hold. Since the halo was known not to be made up of gas and dust (otherwise its extinctive properties would be easy to measure), astronomers long though that the halo contained vast numbers of dense, dark bodies, such as lone planets, dim stars, black holes, and neutron stars---referred to as MACHOs, or Massive Astrophysical Compact Halo Object. Gravitational lensing observations disproved this theory, however, when they capped the mass percentage of MACHOs at about 15\% of the mass of the galaxy. The remainder of the mass was some strange material, spherically distributed throughout the universe, that interacts with nothing but gravity.
 
- As I showed in Table \ref{inheritance} many factors can be assumed to follow from inheritance. Also see the Figure \ref{subd} for an illustration.
+\section*{Dark Matter}
+As that strange material was further studied (as much as it is possible to study something so elusive), more of its properties were discovered. This \emph{dark matter} seems to be made up of WIMPS (Weakly Interacting Massive Particles), which only interact via gravity and the weak force. Being collisionless (since it does not interact with the electromagnetic force), it does not coalesce and form clouds and stars like regular matter, which is how it has maintained its spherical distribution for so long.
 
-\subsection{Custom Commands}\label{commands}
-Are you sick of writing the same complex equation or phrase over and over?
+This dark matter has a density of
+\begin{equation}
+    \rho(r) = \frac{\rho_0}{\left(\frac{r}{a}\right)\left(1+\frac{r}{a}\right)^2}
+\end{equation}
+where $\rho_0$ is the maximum density and $a$ is proportional to the size of the galaxy. This function is referred to as the NFW profile (named after its creators, Navarro, Frank, and White), and is highly accurate for all observed spiral galaxies. For the Milky Way, the simplified equation
+\begin{equation}
+    \rho(r) = \frac{\rho_0}{1+\left(\frac{r}{1}\right)^2}
+\end{equation}
+also returns satisfactory results. However, both these equations appear to suffer from a major problem. If we use them to calculate the total mass of the dark matter in a galaxy, integrating from 0 to $\infty$, it appears that a galaxy has an infinite mass, as follows:
+\begin{equation}
+    \int\limits_{0}^{\infty} \rho(r) 4 \pi r^2 \, \text{d}r = \infty
+\end{equation}
+Since we know this is not true, there must be a cutoff point where the law no longer holds. As it turns out, in local groups like our own, the dark matter halos are so large that they border one another---providing a natural cutoff point and a solution to our problem \citep[pp. 196]{galaxies-in-universe}.
 
-The custom commands should be placed in the preamble, or at least prior to the first usage of the command. The structure of the \verb=\newcommand= consists of the name of the new command in curly braces, the number of arguments to be made in square brackets and then, inside a new set of curly braces, the command(s) that make up the new command. The whole thing is sandwiched inside a larger set of curly braces.
+\section*{Coordinate Systems}
 
-% Note: you cannot use numbers in your commands!
-\newcommand{\hydro}{H$_2$SO$_4$}
+To identify and keep track of objects in the sky, we need to create a coordinate system. A number of natural possibilities spring to mind. The three most useful are detailed below.
 
-In other words, if you want to make a shorthand for H$_2$SO$_4$, which doesn't include an argument, you would write: \verb=\newcommand{\hydro}{H$_2$SO$_4$}= and then when you needed  to use the command you would type \verb=\hydro=. (sans verb and the equals sign brackets, if you're looking at the .tex version). For example: \hydro
+\subsection*{Equatorial Coordinates}
 
-\subsection{Footnotes and Endnotes}
-	You might want to footnote something.\footnote{footnote text} Be sure to leave no spaces between the word immediately preceding the footnote command and the command itself. The footnote will be in a smaller font and placed appropriately. Endnotes work in much the same way. More information can be found about both on the CUS site.
+An equatorial coordinate has two components---a \emph{right ascension}, and a \emph{declination}. To find this coordinate, find the location on the Earth's surface where the object of interest is directly overhead, in the very middle of the sky. The right ascension is the angle between the nearest point on the equator and the vernal equinox (which is defined to be the point where the equator crosses the ecliptic). The declination is then the angle between the current point and that nearest equatorial point. This coordinate system is very ancient, dating back millennia. Figure \ref{equatorial-coords} shows the process of finding such a coordinate.
 
-\section{Bibliographies}
-	Of course you will need to cite things, and you will probably accumulate an armful of sources. This is why BibTeX was created. For more information about BibTeX and bibliographies, see our CUS site (\url{web.reed.edu/cis/help/latex/index.html})\footnote{\cite{reedweb:2007}}. There are three pages on this topic: {\it bibtex} (which talks about using BibTeX, at \url{/latex/bibtex.html}), {\it bibtexstyles} (about how to find and use the bibliography style that best suits your needs, at \url{/latex/bibtexstyles.html}) and {\it bibman} (which covers how to make and maintain a bibliography by hand, without BibTeX, at at \url{/latex/bibman.html}). The last page will not be useful unless you have only a few sources. There used to be APA stuff here, but we don't need it since I've fixed this with my apa-good natbib style file.
-
-\subsection{Tips for Bibliographies}
-\begin{enumerate}
-\item Like with thesis formatting, the sooner you start compiling your bibliography for something as large as thesis, the better. Typing in source after source is mind-numbing enough; do you really want to do it for hours on end in late April? Think of it as procrastination.
-\item The cite key (a citation's label) needs to be unique from the other entries.
-\item When you have more than one author or editor, you need to separate each author's name by the word ``and'' e.g.\\ \verb+Author = {Noble, Sam and Youngberg, Jessica},+.
-\item Bibliographies made using BibTeX (whether manually or using a manager) accept LaTeX markup, so you can italicize and add symbols as necessary.
-\item To force capitalization in an article title or where all lowercase is generally used, bracket the capital letter in curly braces.
-\item You can add a Reed Thesis citation\footnote{\cite{noble:2002}} option. The best way to do this is to use the phdthesis type of citation, and use the optional ``type'' field to enter ``Reed thesis'' or ``Undergraduate thesis''. Here's a test of Chicago, showing the second cite in a row\footnote{\cite{noble:2002}} being different. Also the second time not in a row\footnote{\cite{reedweb:2007}} should be different. Of course in other styles they'll all look the same.
-\end{enumerate}
-\section{Anything else?}
-If you'd like to see examples of other things in this template, please contact CUS (email cus@reed.edu) with your suggestions. We love to see people using \LaTeX\ for their theses, and are happy to help.
-
-
-\chapter{Mathematics and Science}
-\section{Math}
-	\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.
-
-	If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over this next big red section. (It's red in the .tex file but does not show up in the .pdf.)
-
-% MATH and PHYSICS majors: Uncomment the following section
-	$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-$$
-
-From Informational Dynamics, we have the following (Dave Braden):
-
-After {\it n} such encounters the posterior density for $\theta$ is
-
-$$
-\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-  \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-$$
-
-
-
-Another equation:
-
-$$\det\left|\,\begin{matrix}%
-c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-\,\vdots\hfill&\,\vdots\hfill&
- \,\vdots\hfill&&\,\vdots\hfill\cr
-c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-\end{matrix}\right|>0$$
-
-
-Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and
-Engineering.  Page 54
-
-$$
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-  \qquad\quad i=1,2,3.
-$$
-
-L\&P  Galerkin method weighting functions.  Page 55
-
-$$
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-  = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 $$
-
-Another L\&P (p145)
-
-$$
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-  = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-$$
-
-Another L\&P (p126)
-
-$$
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-$$
-
-\section{Chemistry 101: Symbols}
-Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing by using the argument \verb=$\mathrm{formula here}$=, with your formula inside the curly brackets.
-
-So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written \verb=$\mathrm{Fe_2^{2+}Cr_2O_4}$=\\
-Exponent or Superscript: O$^{-}$\\
-Subscript: CH$_{4}$\\
-
-To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.\\
-Angstrom: {\AA}\\
-Bullet: CuCl $\bullet$ 7H${_2}$O\\
-Double Dagger: \ddag \/\\
-Delta: $\Delta$\\
-Reaction Arrows: $\longrightarrow$ or  $\xrightarrow{solution}$\\
-Resonance Arrows: $\leftrightarrow$\\
-Reversible Reaction Arrows: $\rightleftharpoons$ or $\xrightleftharpoons[ ]{solution}$ (the latter requires the chemarr package)\\
-
-
-\subsection{Typesetting reactions}
-You may wish to put your reaction in a figure environment, which means that LaTeX will place the reaction where it fits and you can have a figure legend if desired:
-\begin{figure}[htbp]
-\begin{center}
-$\mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}$
-\caption{Combustion of glucose}
-\label{combustion of glucose}
-\end{center}
+\begin{figure}[p]
+    \includegraphics{imgs/equat.png}
+    \caption{This figure shows the process of finding an equatorial coordinate. CNP and CSP refer to the celestial north and south poles, respectively. R. Ascension refers to the right ascending node, where the Earth's rotational plane crosses its orbital plane.}
+    \label{equatorial-coords}
 \end{figure}
 
-\subsection{Other examples of reactions}
-$\mathrm{NH_4Cl_{(s)}} \rightleftharpoons \mathrm{NH_{3(g)}+HCl_{(g)}}$\\
-$\mathrm{MeCH_2Br + Mg} \xrightarrow[below]{above} \mathrm{MeCH_2\bullet Mg \bullet Br}$
+\subsection*{Galactic Coordinates}
 
-\section{Physics}
+This coordinate system is similar to the equatorial system, but the declination is measured from the galactic plane instead of the equatorial plane. The right ascension is then defined to be the angle between the projection of the body of interest on the galactic plane and the vector between the Sun and galactic center. Figure \ref{galactic-coords} shows this process in more detail. Although harder to calculate from the surface of the earth, this system is more natural when studying bodies traveling close to the Sun. The standard notation and conversions between the two systems are given below:
 
-Many of the symbols you will need can be found on the math page (\url{http://web.reed.edu/cis/help/latex/math.html}) and the Comprehensive \LaTeX\ Symbol Guide (enclosed in this template download).  You may wish to create custom commands for commonly used symbols, phrases or equations, as described in Chapter \ref{commands}.
-
-\section{Biology}
-You will probably find the resources at \url{http://www.lecb.ncifcrf.gov/~toms/latex.html} helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (\url{http://homepages.uni-tuebingen.de/beitz/txe.html}).  Be sure to read the proceeding chapter on graphics and tables, and remember that the thesis template has versions of Ecology and Science bsts which support webpage citation formats.
-
-\chapter{Tables and Graphics}
-
-\section{Tables}
-	The following section contains examples of tables, most of which have been commented out for brevity. (They will show up in the .tex document in red, but not at all in the .pdf). For more help in constructing a table (or anything else in this document), please see the LaTeX pages on the CUS site.
-
-\begin{table}[htbp] % begins the table floating environment. This enables LaTeX to fit the table where it works best and lets you add a caption.
-\caption[Correlation of Inheritance Factors between Parents and Child]{Correlation of Inheritance Factors between Parents and Child}
-% The words in square brackets of the caption command end up in the Table of Tables. The words in curly braces are the caption directly over the table.
-\begin{center}
-% makes the table centered
-\begin{tabular}{c c c c}
-% the tabular environment is used to make the table itself. The {c c c c} specify that the table will have four columns and they will all be center-aligned. You can make the cell contents left aligned by replacing the Cs with Ls or right aligned by using Rs instead. Add more letters for more columns, and pipes (the vertical line above the backslash) for vertical lines. Another useful type of column is the p{width} column, which forces text to wrap within whatever width you specify e.g. p{1in}. Text will wrap badly in narrow columns though, so beware.
-\toprule % a horizontal line, slightly thicker than \hline, depends on the booktabs package
-  Factors &  Correlation between Parents \& Child & Inherited \\ % the first row of the table. Separate columns with ampersands and end the line with two backslashes. An environment begun in one cell will not carry over to adjacent rows.
-  \midrule % another horizontal line
-	Education 				& -0.49 & Yes 	 \\ % another row
-	Socio-Economic Status 	& 0.28 	& Slight \\
-	Income 					& 0.08 	& No	 \\
-	Family Size 			& 0.19 	& Slight \\
-	Occupational Prestige 	& 0.21 	& Slight \\
-\bottomrule % yet another horizontal line
+\begin{tabular}{lll} \toprule
+    Measurement & Equatorial Notation & Galactic Notation \\ \midrule
+    Right Ascension &  $\delta$       & $b$               \\
+    Declination     &  $\alpha$       & $\ell$            \\ \bottomrule
 \end{tabular}
-\end{center}
-\label{inheritance} % labels are useful when you have more than one table or figure in your document. See our online documentation for more on this.
-\end{table}
 
-	\clearpage
-%% \clearpage ends the page, and also dumps out all floats.
-%% Floats are things like tables and figures.
+\begin{equation}
+    \sin b = \sin \delta_{NGP} \sin \delta + \cos \delta_{NGP} \cos \delta \cos (\alpha-\alpha_{NGP})
+\end{equation}
+\begin{equation}
+    \sin \delta = \sin \delta_{NGP} \sin b + \cos \delta_{NGP} \cos b \cos{\ell_{NCP} - \ell}
+\end{equation}
+Where $\delta_{NGP} = \ang{27;7;41.7}$ and $\ell_{NCP}=\ang{123;55;55.2}$, as determined by the tilt of the earth and its orientation relative to the galactic plane. These equations can also be inverted to find $\ell$ and $\alpha$ \citep[pp. 900]{modern-astrophysics}.
 
-If you want to make a table that is longer than a page, you will want to use the longtable environment. Uncomment the table below to see an example, or see our online documentation.
+\begin{figure}[p]
+    \includegraphics{imgs/galactic}
+    \caption{This figure shows the process of finding a galactic coordinate. GNP and GSP refer to the galactic north and south poles, respectively.}
+    \label{galactic-coords}
+\end{figure}
 
-%% An example of a long table, with headers that repeat on each subsequent page: Results from the summers of 1998 and 1999 work at Reed College done by Grace Brannigan, Robert Holiday and Lien Ngo in 1998 and Kate Brown and Christina Inman in 1999.
+\subsection*{Cylindrical Coordinates}
 
-	\begin{longtable}{||c|c|c|c||}
-	 	\caption[Chromium Hexacarbonyl Data Collected in 1998--1999]{Chromium Hexacarbonyl Data Collected in 1998--1999}\\ \hline
-	    	  \multicolumn{4}{||c||}{Chromium Hexacarbonyl} \\\hline
-		   State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-at vapor pressure}}{\textrm{Intensity at 240 Torr}}$ \\ \hline
-		  \endfirsthead
-		\hline     State & Laser wavelength & Buffer gas & Ratio of
-$\frac{\textrm{Intensity at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\
-\hline
-		    \endhead
+The two coordinate systems discussed earlier are well-suited for positional observations from the Earth at a given point in time, but perform poorly over long timeframes. As the sun travels around its orbit, the coordinates of an object change even if it has not moved at all---not an ideal behavior from a reference system. The cylindrical coordinate system, with a reference point at the center of the universe solves these concerns. Unlike the others, it is a three-component coordinate system: $R$ is the radial distance along the plane, increasing outwards; $\theta$ is the angular position, and increases in the direction of rotation; and $z$ is the height above (or below) the plane, increasing towards the north, as shown in figure \ref{cylindrical-coords}. These coordinates also produce a natural (and commonly used) velocity coordinate system, as described below \citep{modern-astrophysics}:
+\begin{equation}
+    \Pi \equiv \frac{dR}{dt} \hspace{2cm} \Theta \equiv R\frac{d\theta}{dt} \hspace{2cm} Z \equiv \frac{dz}{dt}
+\end{equation}
 
-	    $z^{7}P^{\circ}_{4}$ & 266 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.57 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 266 nm & Argon & 1 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.14 \\\hline
-	    $y^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.14 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 266 nm & Argon & 1.2 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.04 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.02 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.07 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.05 \\\hline
-	    $y^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.05, 0.4 \\\hline
-	    $y^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.25 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 266 nm & Argon & 1.4 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 355 nm & Argon & 0.29 \\\hline
-	    $z^{5}F^{\circ}_{4}$ & 355 nm & Helium & 1.02 \\\hline
-	    $z^{5}D^{\circ}_{4}$ & 355 nm & Argon & 0.3 \\\hline
-	    $z^{5}D^{\circ}_{4}$ & 355 nm & Helium & 0.65 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 266 nm & Argon & 0.17 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Argon & 0.13 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Helium & 0.11 \\\hline
-	    $a^{5}D_{3}$ & 266 nm & Argon & 0.71 \\\hline
-	    $a^{5}D_{2}$ & 266 nm & Argon & 0.77 \\\hline
-	    $a^{5}D_{2}$ & 355 nm & Argon & 0.63 \\\hline
-	    $a^{3}D_{3}$ & 355 nm & Argon & 0.05 \\\hline
-	    $a^{5}S_{2}$ & 266 nm & Argon & 2 \\\hline
-	    $a^{5}S_{2}$ & 355 nm & Argon & 1.5 \\\hline
-	    $a^{5}G_{6}$ & 355 nm & Argon & 0.91 \\\hline
-	    $a^{3}G_{4}$ & 355 nm & Argon & 0.08 \\\hline
-	    $e^{7}D_{5}$ & 355 nm & Helium & 3.5 \\\hline
-	    $e^{7}D_{3}$ & 355 nm & Helium & 3 \\\hline
-	    $f^{7}D_{5}$ & 355 nm & Helium & 0.25 \\\hline
-	    $f^{7}D_{5}$ & 355 nm & Argon & 0.25 \\\hline
-	    $f^{7}D_{4}$ & 355 nm & Argon & 0.2 \\\hline
-	    $f^{7}D_{4}$ & 355 nm & Helium & 0.3 \\\hline
-	    \multicolumn{4}{||c||}{Propyl-ACT} \\\hline
-%	    State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-%at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\ \hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{3}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 1.25 \\\hline
-	    $z^{7}F^{\circ}_{5}$ & 355 nm & Argon & 2.85 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Argon & 0.07 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.06 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.12 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.13 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.14 \\\hline
-	    \multicolumn{4}{||c||}{Methyl-ACT} \\\hline
-%	    State & Laser wavelength & Buffer gas & Ratio of $\frac{\textrm{Intensity
-% at vapor pressure}}{\textrm{Intensity at 240 Torr}}$\\ \hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Argon & 1.6, 2.5 \\\hline
-	    $z^{7}P^{\circ}_{4}$ & 355 nm & Helium & 3 \\\hline
-	    $z^{7}P^{\circ}_{4}$ & 266 nm & Argon & 1.33 \\\hline
-	    $z^{7}P^{\circ}_{3}$ & 355 nm & Argon & 1.5 \\\hline
-	    $z^{7}P^{\circ}_{2}$ & 355 nm & Argon & 1.25, 1.3 \\\hline
-	    $z^{7}F^{\circ}_{5}$ & 355 nm & Argon & 3 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Argon & 0.07, 0.08 \\\hline
-	    $y^{7}P^{\circ}_{4}$ & 355 nm & Helium & 0.2 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 266 nm & Argon & 1.22 \\\hline
-	    $y^{7}P^{\circ}_{3}$ & 355 nm & Argon & 0.08 \\\hline
-	    $y^{7}P^{\circ}_{2}$ & 355 nm & Argon & 0.1 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 266 nm & Argon & 0.67 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Argon & 0.08, 0.17 \\\hline
-	    $z^{5}P^{\circ}_{3}$ & 355 nm & Helium & 0.12 \\\hline
-	    $z^{5}P^{\circ}_{2}$ & 355 nm & Argon & 0.13 \\\hline
-	    $z^{5}P^{\circ}_{1}$ & 355 nm & Argon & 0.09 \\\hline
-	    $y^{5}H^{\circ}_{7}$ & 355 nm & Argon & 0.06, 0.05 \\\hline
-	    $a^{5}D_{3}$ & 266 nm & Argon & 2.5 \\\hline
-	    $a^{5}D_{2}$ & 266 nm & Argon & 1.9 \\\hline
-	    $a^{5}D_{2}$ & 355 nm & Argon & 1.17 \\\hline
-	    $a^{5}S_{2}$ & 266 nm & Argon & 2.3 \\\hline
-	    $a^{5}S_{2}$ & 355 nm & Argon & 1.11 \\\hline
-	    $a^{5}G_{6}$ & 355 nm & Argon & 1.6 \\\hline
-	    $e^{7}D_{5}$ & 355 nm & Argon & 1 \\\hline
+Note that, because the galaxy rotates clockwise when viewed from the north pole, this is a left-handed coordinate system rather than a more-standard right-hand system. Fortunately, we do not need to take any cross-products, so this does not cause any problems.
 
-		\end{longtable}
+\begin{figure}[p]
+    \includegraphics{imgs/cyl-coords}
+    \caption{This figures shows the process of finding a cylindrical coordinate.}
+    \label{cylindrical-coords}
+\end{figure}
+
+\subsection*{Local Standard of Rest}
+
+Now that we have a definition of the cylindrical velocity coordinates, we can deine the Local Standard of Rest (LSR), an important concept in astrophysics. The LSR at a given moment is defined to be the velocity of a body in the sun's position, in a perfectly circular and on-plane orbit---which in practice means the $\Theta$-component of the sun's velocity, with $\Pi$ and $Z$ set to zero.
+
+The velocity of a nearby star relative to the LSR is known as its \emph{peculiar velocity}, and approximates the velocity of that star relative to the sun. Its coordinates are typically designated $(u,v,w)$, where
+\begin{align}
+    u &= \Pi - \Pi_{LSR} \\
+    v &= \Theta - \Theta_{LSR} \\
+    w &= Z - Z_{LSR}
+\end{align}
+
+The average peculiar velocity for stars in the solar neighborhood is approximately zero, since the universe is mostly axisymmetric. However, individual peculiar velocities vary widely, with young main-sequence stars like the sun having low velocities and old, metal-poor red dwarfs having higher velocities. As discussed earlier, this is due to the additional orbital perturbations experienced by old stars, especially during the chaotic period of formation $\SI{9}{\giga\year}$ ago.
 
 
-   \section{Figures}
 
-	If your thesis has a lot of figures, \LaTeX\ might behave better for you than that other word processor.  One thing that may be annoying is the way it handles ``floats'' like tables and figures. \LaTeX\ will try to find the best place to put your object based on the text around it and until you're really, truly done writing you should just leave it where it lies.   There are some optional arguments to the figure and table environments to specify where you want it to appear; see the comments in the first figure.
 
-	If you need a graphic or tabular material to be part of the text, you can just put it inline. If you need it to appear in the list of figures or tables, it should be placed in the floating environment.
-
-	To get a figure from StatView, JMP, SPSS or other statistics program into a figure, you can print to pdf or save the image as a jpg or png. Precisely how you will do this depends on the program: you may need to copy-paste figures into Photoshop or other graphic program, then save in the appropriate format.
-
-	Below we have put a few examples of figures. For more help using graphics and the float environment, see our online documentation.
-
-	And this is how you add a figure with a graphic:
-	\begin{figure}[h]
-	% the options are h = here, t = top, b = bottom, p = page of figures.
-	% you can add an exclamation mark to make it try harder, and multiple
-	% options if you have an order of preference, e.g.
-	% \begin{figure}[h!tbp]
-
-	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	    \includegraphics{subdivision}
-	     \caption{A Figure}
-	 \label{subd}
-	\end{figure}
-
-\clearpage %% starts a new page and stops trying to place floats such as tables and figures
-
-\section{More Figure Stuff}
-You can also scale and rotate figures.
- 	\begin{figure}[h!]
-
-	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	    \includegraphics[scale=0.5,angle=180]{subdivision}
-	    % if your figure shows up not where you want it, it may just be too big to fit. You can use the scale argument to shrink it, e.g. scale=0.85 is 85 percent of the original size.
-	     \caption{A Smaller Figure, Flipped Upside Down}
-	 \label{subd2}
-	\end{figure}
-
-\section{Even More Figure Stuff}
-With some clever work you can crop a figure, which is handy if (for instance) your EPS or PDF is a little graphic on a whole sheet of paper. The viewport arguments are the lower-left and upper-right coordinates for the area you want to crop.
-
- 	\begin{figure}[h!]
-	    	       \centering
-	    % DO NOT ADD A FILENAME EXTENSION TO THE GRAPHIC FILE
-	   \includegraphics[clip=true, viewport=.0in .0in 1in 1in]{subdivision}
-	    \caption{A Cropped Figure}
-	 \label{subd3}
-	\end{figure}
-
-      \subsection{Common Modifications}
-      The following figure features the more popular changes thesis students want to their figures. This information is also on the web at \url{web.reed.edu/cis/help/latex/graphics.html}.
-    %\renewcommand{\thefigure}{0.\arabic{figure}} 	% Renumbers the figure to the type 0.x
-    %\addtocounter{figure}{4} 						% starts the figure numbering at 4
-    \begin{figure}[htbp]
-    \begin{center}
-   \includegraphics[scale=0.5]{subdivision}
-    \caption[Subdivision of arc segments]{\footnotesize{Subdivision of arc segments. You can see that $ p_3 = p_6^\prime$.}} %the special ToC caption is in square brackets. The \footnotesize makes the figure caption smaller
-    \label{barplot}
-    \end{center}
-    \end{figure}
 
 \chapter*{Conclusion}
          \addcontentsline{toc}{chapter}{Conclusion}
@@ -475,9 +253,7 @@ With some clever work you can crop a figure, which is handy if (for instance) yo
 	\setcounter{chapter}{4}
 	\setcounter{section}{0}
 
-Here's a conclusion, demonstrating the use of all that manual incrementing and table of contents adding that has to happen if you use the starred form of the chapter command. The deal is, the chapter command in \LaTeX\ does a lot of things: it increments the chapter counter, it resets the section counter to zero, it puts the name of the chapter into the table of contents and the running headers, and probably some other stuff.
-
-So, if you remove all that stuff because you don't like it to say ``Chapter 4: Conclusion'', then you have to manually add all the things \LaTeX\ would normally do for you. Maybe someday we'll write a new chapter macro that doesn't add ``Chapter X'' to the beginning of every chapter title.
+\emph{The process by which the structure and dynamics of the MW were discovered was by no means trivial: Linblad [ref.] was a hero along with the other pioneers.  Buried in the galaxy they had some advantages compared to understanding, say, the Andromeda, but being in the disk causes huge difficulties, not the least of which is the dust.}
 
 \section{More info}
 And here's some other random info: the first paragraph after a chapter title or section head \emph{shouldn't be} indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
