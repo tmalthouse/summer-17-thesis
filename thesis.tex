@@ -46,6 +46,7 @@
 %\usepackage{biblatex-chicago}
 %\bibliography{thesis}
 
+
 \usepackage{ebgaramond-maths} % other fonts are available like times, bookman, charter, palatino
 
 \title{N-Body Simulations of Barred Galaxies}
@@ -140,12 +141,12 @@
 % \onehalfspacing
 % \doublespacing
 
-The Milky Way is an entirely unextraordinary galaxy. Its hallmark spiral arms---visible in the night sky, stretching from horizon to horizon---are shared by about 60\% of galaxies in our universe \citep{apm-bgc}. A bar---a large collection of stars passing through the galactic center, prominent in renderings of the Milky Way---is also found around two in three other spiral galaxies---meaning about 40\% of known galaxies are of the same classification as ours. These extensive similarities mean that studying the evolution and structure of the Milky Way can provide insights about galactic behavior in general, and that observing other galaxies can reveal the past and future of out own.
+The Milky Way is an entirely unextraordinary galaxy. Its hallmark spiral arms---visible in the night sky[[a bit more work here -- visible in what sense? from what angle? by whom -- a putative observe in the Andromeda galaxy]], stretching from horizon to horizon---are shared by about 60\% of galaxies in our universe \citep{apm-bgc}. A bar---a large collection of stars passing through the galactic center, prominent in renderings of the Milky Way [[hmm ... renderings? artist's conceptions?  I have never actually seen  the data or an artist's conception of the the MW bar.]]---is also found around two in three other spiral galaxies---meaning about 40\% of known galaxies are of the same classification as ours. [[I presume you mean the b in Hubble classification -- you need a couple of sentences to make that point clear to, say, a fourth reader -- this part of the thesis is the intro. and that part of a thesis ``should'' be understandable to a professor of English, say.]] These extensive similarities mean that studying the evolution and structure of the Milky Way can provide insights about galactic behavior in general, and that observing other galaxies can reveal the past and future of out own. [[very nice concluding sentence.]]
 
 \section*{Disks}
-The Milky Way has two main disks which hold the vast majority of visible matter in the galaxy and give rise to its spiral structure. The \emph{thin disk} is the more visible of the two, composed mainly of main-sequence stars and clouds of gas and dust \citep{galaxies-in-universe}. Its vertical density scale height---the distance over which its density decreases by a factor of $e$---is about $\SI{350}{\parsec}$---very thin compared to its radius of about $\SI{25}{\kilo\parsec}$. This thinness comes from its young age, since the stars that compose it are less likely to have had their orbits perturbed---especially in the chaotic period about $\SI{9}{\giga\year}$ ago. The thin disk accounts for about 97\% of the galaxy's (normal) mass and holds nearly all galactic dynamism and stellar formation.
+The Milky Way has two main disks which hold the vast majority of visible matter in the galaxy and give rise to its spiral structure. The \emph{thin disk} is the more visible of the two, composed mainly of main-sequence stars and clouds of gas and dust \citep{galaxies-in-universe}. Its vertical density scale height---the distance over which its density decreases by a factor of $e$---is about $\SI{350}{\parsec}$---very thin compared to its radius of about $\SI{25}{\kilo\parsec}$. This thinness comes from its young age, since the stars that compose it are less likely to have had their orbits perturbed---especially in the chaotic period about $\SI{9}{\giga\year}$ ago. The thin disk accounts for about 97\% of the galaxy's (normal) mass and holds nearly all galactic dynamism and stellar formation. [[Nicely done ... gonna keep dynamism, I will be interested in picking up any reaction.]]
 
-The other disk, referred to as the \emph{dark disk} or \emph{thick disk}, is far older and less dynamic \citep{starrfield-thick-disk}. Composed of stars formed $\SI{10}{\giga\year}$ to $\SI{12}{\giga\year}$ ago, it is very faint and hard to detect---all the bright stars burned out long ago, and the only ones left are low-magnitude red dwarfs and K-class stars. These stars' orbits also tend to be less regular, since they've had time to be perturbed and pushed into new orbits, especially during the chaotic initial organization of the Milky Way $\SI{10}{\giga\year}$ ago---resulting in a scale height of about $\SI{1}{\kilo\parsec}$. Because its stars are so steady-burning and the complete lack of gas and dust, the thick disk is very stable and exhibits none of the dynamism seen in the thin disk. It accounts for only about 3\% of the regular matter in the galaxy, with a total mass of about $\SI{1e10}{\solar}$.
+The other disk, referred to as the \emph{dark disk} or \emph{thick disk}, is far older and less dynamic \citep{starrfield-thick-disk}.[[]] Composed of stars formed $\SI{10}{\giga\year}$ to $\SI{12}{\giga\year}$ ago, it is very faint and hard to detect---all the bright stars burned out long ago, and the only ones left are low-magnitude red dwarfs and K-class stars. These stars' orbits also tend to be less regular, since they've had time to be perturbed and pushed into new orbits, especially during the chaotic initial organization of the Milky Way $\SI{10}{\giga\year}$ ago---resulting in a scale height of about $\SI{1}{\kilo\parsec}$. Because its stars are so steady-burning and the complete lack of gas and dust, the thick disk is very stable and exhibits none of the dynamism seen in the thin disk. It accounts for only about 3\% of the regular matter in the galaxy, with a total mass of about $\SI{1e10}{\solar}$.
 Note that the name \emph{dark disk} refers to the low luminosity of the stars within, and has no relation to the dark matter discussed below.
 
 \section*{Metallicity and Age}
@@ -231,7 +232,11 @@ Note that, because the galaxy rotates clockwise when viewed from the north pole,
 
 \subsection*{Local Standard of Rest}
 
+<<<<<<< HEAD
+Now that we have a definition of the cylindrical velocity coordinates, we can deine the Local Standard of Rest (LSR), an important concept in astrophysics. The LSR at a given moment is defined to be the velocity of a body in the sun's position, in a perfectly circular and on-plane orbit---which in practice means the $\Theta$-component of the sun's velocity, with $\Pi$ and $Z$ set to zero.
+=======
 Now that we have a definition of the cylindrical velocity coordinates, we can define the Local Standard of Rest (LSR), an important concept in astrophysics. The LSR at a given moment is defined to be the velocity of a body in the sun's position, in a perfectly circular and on-plane orbit---which in practice means the $\Theta$-component of the sun's velocity, with $\Pi$ and $Z$ set to zero.
+>>>>>>> 34c1299aa06663d7cecfc2eb1431693b6293b61b
 
 The velocity of a nearby star relative to the LSR is known as its \emph{peculiar velocity}, and approximates the velocity of that star relative to the sun. Its coordinates are typically designated $(u,v,w)$, where
 \begin{align}
