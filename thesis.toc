@@ -1,6 +1,0 @@
-\contentsline {chapter}{Introduction}{1}
-\contentsline {chapter}{Conclusion}{9}
-\contentsline {section}{\numberline {4.1}More info}{9}
-\contentsline {chapter}{Appendix A: The First Appendix}{11}
-\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{13}
-\contentsline {chapter}{References}{15}
