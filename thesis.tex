@@ -43,10 +43,13 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{caption}
+% A better code font
+\usepackage{inconsolata}
 \lstset{
     language=C,
     keywordstyle=\color{blue},
-    basicstyle=\footnotesize\ttfamily
+    basicstyle=\footnotesize\ttfamily,
+    commentstyle=\color{gray}
 }
 
 \DeclareCaptionFont{white}{ \color{white} }
@@ -55,7 +58,7 @@
     \parbox{\textwidth}{\hspace{15pt}#1#2#3}
   }
 }
-\captionsetup[lstlisting]{ format=listing, labelfont=white, textfont=white, singlelinecheck=false, margin=0pt, font=tt }
+\captionsetup[lstlisting]{ format=listing, labelfont=white, textfont=white, singlelinecheck=false, margin=0pt }
 
 \lstdefinelanguage
    [x64]{Assembler}     % add a "x64" dialect of Assembler
@@ -102,6 +105,8 @@
 \DeclareSIUnit[]\year
 {\mathrm{\ensuremath{yr}}}
 
+\definecolor{light-gray}{gray}{0.9}
+\newcommand\code[1]{\colorbox{light-gray}{\texttt{\textcolor{black}{#1}}}}
 
 
 %%
@@ -293,34 +298,46 @@ Simulating a galaxy requires a massive amount of computational power. Even a sim
 \subsection{Assembly and Machine Code}
 Every computer program ever written can be expressed rewritten with a small set of commands. These commands directly manipulate memory, adding, comparing, and copying bits around. Different types of computer processors have different sets of commands, some more extensive than others. For example, the ARM processors found in smartphones have a \emph{RISC} (reduced instruction set circuit) design, which means they can perform a minimal set of operations, and more complex operations---like the square root---are expressed in terms of that small set. Other architectures, like the x86 design found in nearly all modern laptops and desktops, are referred to as \emph{CISC} (complex instruction set circuit) designs, and can do more operations without being programmed to. This design is often faster, but is more difficult to manufacture and often more expensive. In this thesis, we will exclusively focus on the x86\_64 architecture, as found in nearly all modern desktop and laptop computers.
 
-The set of operations a processor can perform is referred to as the \emph{instruction set}, and is determined entirely by the physical circuit of the processor---so an x86 processor can never be turned into an ARM processor, or vice versa. As the processor runs, instructions are provided in the form of 8-bit numbers, each one corresponding to an operation. For example, the \emph{opcode} \texttt{0x40} (decimal 64) tells the processor to increment a given value by one. Since the processor also needs to know what data to perform the operation on, a more complete instruction would look something like \fbox{\texttt{0x40 6c}}. This instruction increments the value stored in memory at location \texttt{6c} by one.
+The set of operations a processor can perform is referred to as the \emph{instruction set}, and is determined entirely by the physical circuit of the processor---so an x86 processor can never be turned into an ARM processor, or vice versa. As the processor runs, instructions are provided in the form of 8-bit numbers, each one corresponding to an operation. For example, the \emph{opcode} \code{0x40} (decimal 64) tells the processor to increment a given value by one. Since the processor also needs to know what data to perform the operation on, a more complete instruction would look something like \code{0x40 6c}. This instruction increments the value stored in memory at location \texttt{6c} by one.
 
-Early programs were written like this, as long sequences of hexadecimal numbers that could be directly interpreted by the processor. However, remembering dozens of opcodes was unwieldy, and finding and fixing bugs was practically impossible. Frustrated, programmers invented human-friendly names for operations and common memory locations and wrote a tool (called an \emph{assembler}) to automatically replace them with the appropriate number. This new programming language was called \emph{assembly}, and greatly simplified programming. For example, our instruction from earlier would be written in assembly as something like \fbox{\texttt{INC EAX}}---still opaque, but more useful than a few hexadecimal numbers. Many programs still in use today (including Unix, the basis of Mac OS X and Linux) were originally written in an assembly language.
+Early programs were written like this, as long sequences of hexadecimal numbers that could be directly interpreted by the processor. However, remembering dozens of opcodes was unwieldy, and finding and fixing bugs was practically impossible. Frustrated, programmers invented human-friendly names for operations and common memory locations and wrote a tool (called an \emph{assembler}) to automatically replace them with the appropriate number. This new programming language was called \emph{assembly}, and greatly simplified programming. For example, our instruction from earlier would be written in assembly as something like \code{INC EAX}---still opaque, but more useful than a few hexadecimal numbers. Many programs still in use today (including Unix, the basis of Mac OS X and Linux) were originally written in an assembly language.
 
 \subsection{The Development of High-level Languages}
 
-Assembly was a massive improvement over typing in raw machine code, but it remained difficult to write and maintain large codebases, especially with large teams of programmers. Simple tools like conditional (if/else) blocks and loops were error-prone, and the structure of the program mimicked the inner working of the processor more than that of the human brain. Various \emph{programming languages} were designed to simplify the programming process, with associated \emph{compilers} to convert source code into assembly. These languages featured more natural math and now-familiar constructs like the \texttt{for} loop and the concept of functions. The most popular and enduring of these languages was C, which underlies nearly every operating system and utility in use today. Our example instruction from earlier, written in C, is \fbox{\texttt{i++;}}---far simpler than before, and close to the notation used in mathematics.
+Assembly was a massive improvement over typing in raw machine code, but it remained difficult to write and maintain large codebases, especially with large teams of programmers. Simple tools like conditional (if/else) blocks and loops were error-prone, and the structure of the program mimicked the inner working of the processor more than that of the human brain. Various \emph{programming languages} were designed to simplify the programming process, with associated \emph{compilers} to convert source code into assembly. These languages featured more natural math and now-familiar constructs like the \code{for} loop and the concept of functions. The most popular and enduring of these languages was C, which underlies nearly every operating system and utility in use today. Our example instruction from earlier, written in C, is \code{i++;}---far simpler than before, and close to the notation used in mathematics.
 
 Of course (and this should seem familiar by this point), C had some limitations. String handling was an exercise in frustration, and manually handling memory meant leaks (where a piece of memory is never returned to the operating system) were commonplace. Accessing invalid memory was all-too-common, especially among new programmers, and could lead to all kinds of insidious bugs. Higher-level languages were created to deal with these problems, providing robust, error-free constructs to simplify these tasks. The first and most well-known of these languages was C++, which started out as a collection of text replacements and code generators for C and quickly evolved into a massive, full-featured language. Others followed, many keeping the basic syntax of C but automating ever-more. In general, these languages were much easier to write than C, at a significant performance cost---which was offset by rapid improvements in processor technology.
 
+\subsection{Choosing a Language}
+As mentioned earlier, performance is absolutely critical for our n-body simulator. Therefore, we need to be very careful when choosing a programming language for our project. Modern \emph{Interpreted languages}---which do not compile to machine code, but are run by an \emph{interpreter} or \emph{virtual machine}---like Python or C\# have too much overhead to use. Their simplicity and ease of use would be very nice to have, but they just aren't fast enough for our purposes. That leaves us with the compiled languages---C and C++ the most well known among them.
+
+At first, C++ would seem like an obvious choice. Features like exceptions (which greatly improve error handling) and inheritance (which makes it easier to work with complex data types) are hard to live without, and most programmers have never used a language without them. However, these features also add overhead---they function as code generators, making it easy to create a lengthy and computationally complex program without realizing it. Since we can't use most of the features that make C++ what it is for performance reasons, the choice between C and C++ is mostly cosmetic---the finished codes would look very similar, and could easily be converted into each other. Since I had more experience with C from prior project and much prefer the C syntax to that of C++, I decided to use C for this project.
+
+\subsection{Learning C}
+C has a bit of a reputation. It's seen as a fragile, temperamental language, where even the smallest change can make the difference between a crash and a successful run. Pointers---the defining language feature---can be difficult to understand at first, and are far less user-friendly than the objects and arrays most languages replace them with. But it's also a very simple language, where learning a dozen keywords and a handful of concepts lets you understand just about any C program ever written. There are countless resources online for learning C, and it isn't hard to start writing simple programs. For a list of useful resources, see \ref{C-resources}.
+
+
 \section{Hardware-based Vectors}
 
-Traditionally -- [[a little more on what you mean by that word]], to do vector-based computations on the central procession unit]] (CPU) [[see R.E. Simpson -- very late chapter on the definition of a CPU.  This definition is needed to explain cores and processors at some point ]], a programmer would have to create their own definition of a vector through a [[class  -- special font]] or a [[structure-- special font]]. They would be responsible for implementing all needed operations in software, and these operations would be run like any other code---serially, with the normal overhead of a function call. However, recent x86-64 CPUs (anything made by Intel in the last decade [[good addition]] ) have a [[single instruction multiple data (SIMD) [[ref.]] coprocessor [[definition]] that allows for native, hardware-accelerated vector computation.
+Let's imagine the components of an n-body simulator. We clearly need to define some kind of data type to hold essential information about a given body---its position, its velocity (collectively referred to as its \emph{state}), its mass, and possible some kind of name or numeric ID, to allow individual bodies to be tracked. In C, we would define this \code{Body} type using a \code{struct}, or compound data type. The latter fields are simple enough---C provides datatypes for both integral and non-integral numbers, and strings are easy to create. However, defining the vectors (as needed for the position and velocity) is a little trickier. A simple definition for \code{Body} is shown in listing \ref{body-def}.
 
-[[Lots of help here]]
+\lstinputlisting[caption={This code snippet shows the definition of the \code{Body} data type. Note that the position and velocity are of the \texttt{vec3} datatype, which is not part of the C language.\label{body-def}}]{code_snippets/body_def.c}
 
-\begin{lstlisting}[caption={A[[n ? ]] nearly-equivalent declaration\label{struct-vector}}]
-    typedef struct {
-        double x;
-        double y;
-        double z;
-    } vec3;
-\end{lstlisting}
+In the past, to write a physical simulation involving vector calculations, a programmer would have to create their own definition of a vector using a \code{struct}, like we did to define a \code{Body} (a sample definition is shown in \ref{struct-vector}). They would be responsible for coding even the most basic operations---like addition and scalar multiplication---by hand, and this code would be executed like any other, with the normal overhead of a function call. However, recent x86-64 processors (anything made by Intel in the last decade) have a single-instruction, multiple-data (SIMD) coprocessor \citep{intel-simd}, which is designed to perform a given operation on multiple numbers simultaneously.
+
+\lstinputlisting[caption={A definition\label{struct-vector}}]{code_snippets/struct-vector.c}
+
 
 \subsection{SIMD}
-SIMD, short for \emph{single-instruction, multiple-data} [[needed earlier]], is the simplest form of parallelism. A special piece of hardware executes the same command on more than one piece of data at a time, making it very useful for tasks like array processing or graphics rendering. For tasks like array processing, the SIMD optimizations are often generated by the compiler, with no programmer input necessary (other than setting the correct flags). they also work [[, However,]]  well for vector operations (which often involve performing the same operation on each scalar element). Since the compiler [[define]] cannot reliably determine if a certain datatype is meant to represent a vector, this functionality requires an explicit declaration, as seen in \ref{ext-vector}
+SIMD, short for \emph{single-instruction, multiple-data}, is the simplest form of parallelism. A special piece of hardware executes the same command on more than one piece of data at a time, making it very useful for tasks like array processing or graphics rendering, where each element in the array or each pixel on the screen needs the same computations performed on it. For tasks like array processing, the SIMD optimizations are often generated by the compiler, with no programmer input necessary (other than setting the correct flags). This model---where each element is computed simultaneously---would also seem to work well for basic vector operations like addition and scalar multiplication, which are calculated on an element-by-element basis. Since the compiler cannot figure out whether a given data type is meant to represent a vector, we need to explicitly tell it. The syntax for doing so is shown in listing \ref{ext-vector}.
 
-\begin{lstlisting}[caption={The declaration for EXT vector types\label{ext-vector}}]
+
+\begin{lstlisting}[caption={The declaration for EXT vector types. These vectors are
+    not part of standard C, but are available on nearly all modern systems using the \code{clang} compiler.\label{ext-vector}}]
+    //This declares a new datatype called vec3.
+    //It consists of double-precision floating point numbers,
+    //and is defined to be a 3-dimensional vector by the
+    //__attribute__ tag.
     typedef double vec3 __attribute__((ext_vector_type(3)));
 \end{lstlisting}
 
@@ -328,18 +345,21 @@ SIMD, short for \emph{single-instruction, multiple-data} [[needed earlier]], is 
 
 \subsection{Properties of Hardware-based Vectors}
 
-Although these types are meant to serve as vectors, many useful vector operations---absolute value, the cross and dot products, and similar---are not implemented. All the C operators can be used on vectors (even if they don't make much sense). For example, as seen in listing \ref{operators}, the \texttt{>} operator is defined for vector types, and returns a vector of 3 \texttt{bool}s. All these operators return a vector themselves, so any operators returning a scalar must be implemented in software (such as seen in listing \ref{software-implem}).
+Although these types are meant to serve as vectors, many useful vector operations---absolute value, the cross and dot products, and similar---are not implemented. As a general rule, any operation that returns a scalar (like the absolute value and dot product, for example), or doesn't have a scalar analogue (like the cross product, which is only defined on 3-dimensional vectors), must be implemented by the programmer. Writing the code for these operations tends to be fairly simple, and uses the standard algorithms covered in Physics 101. For example, listing \ref{software-implem} shows the code for calculating the absolute value of a vector.
+
+\begin{lstlisting}[caption={Implementing the absolute value function in software\label{software-implem}}]
+    inline double vabs (vec3 v) {
+        return sqrt(v.x*v.x + v.y*v.y + v.z*v.z);
+    }
+\end{lstlisting}
+
+Some operations are already predefined. Since these vectors follow the SIMD model, any operation that acts on each element individually is trivial for the compiler to handle. Therefore, all of the normal C operators are valid for vectors. Sometimes, like in the case of addition or scalar multiplication, this behavior is normal and expected, and provides a useful speed improvement over a software-based method. However, some operators make no sense under this model yet are defined anyways. For example, a vector space is not an ordered field (as we learned in linear algebra). There is no good way to order or sort vectors. And yet the \code{< >} operators are defined for vectors, behaving as shown in listing \ref{operators}. This behavior can be a little tricky, especially if an operator behaves unexpectedly.
 
 \begin{lstlisting}[caption={Some operations aren't especially useful\label{operators}}]
     (vec3){0,5,8} > (vec3){3,4,8} == (vec3){false, true, false};
 \end{lstlisting}
 
-\begin{lstlisting}[caption={Implementing the absolute value function in software\label{software-implem}}]
-    #include<math.h>
-    inline double vabs (vec3 v) {
-        return sqrt(v.x*v.x + v.y*v.y + v.z*v.z);
-    }
-\end{lstlisting}
+
 
 \subsection{Performance Advantages}
 
@@ -420,13 +440,41 @@ And here's some other random info: the first paragraph after a chapter title or 
 \begin{appendices}
     \chapter{}
         \section{The Hubble Classification System} \label{hubble-fork}
-            The Hubble Classification System, or Hubble Sequence, is the most commonly used scheme for classifying galaxies. Nicknamed \emph{The Fork}, it goes from elliptical galaxies on the left, to the two kinds (barred and unbarred) of spiral galaxies on the right. See fig. \ref{hubble}
+            The Hubble Classification System, or Hubble Sequence, is the most commonly used scheme for classifying galaxies. Nicknamed \emph{The Fork}, it goes from elliptical galaxies on the left, to the two kinds (barred and unbarred) of spiral galaxies on the right.
 
-            \begin{figure}
-                \includegraphics[width=\textwidth]{imgs/hubble_seq}
-                \caption{A diagram of the Hubble tuning fork. \emph{Image courtesy Allan Sandage/CalTech}}
-                \label{hubble}
-            \end{figure}
+            \includegraphics[width=\textwidth]{imgs/hubble_seq}
+            \emph{Image courtesy Allan Sandage/CalTech}
+
+
+        \section{C Language Resources} \label{C-resources}
+        \begin{itemize}
+            \item \emph{Learn C the Hard Way: Practical Exercises on the Computational Subjects You Keep Avoiding (Like C)}
+            ---A good introduction to writing simple, useful C programs. Often breaks with tradition, but always for the better.
+
+            \url{http://www.indiebound.org/book/9780321884923}
+
+            \item \emph{C in a Nutshell}
+            ---A massive, 824 page book, that has everything you could ever want to know about using the C language
+
+            \url{http://www.indiebound.org/book/9781491904756}
+
+            \item \emph{21st Century C}
+            ---A guide to using a language designed in 1970, in 2017. Most useful if you already have an understanding of C.
+
+            \url{http://www.indiebound.org/book/9781491903896}
+
+            \item \emph{The C Programming Language}
+            ---An absolute classic, written by the designers of the language. This book isn't all that useful for \emph{learning} modern C, but it sheds light on the reasons the language was designed the way it was.
+
+            \url{http://www.indiebound.org/book/9780131103627}
+
+            \item \emph{Build your own Lisp}
+            ---Learn C by writing an interpreter for the Lisp language. A complete guide to a really fun and useful project. Available both online and as a printed book.
+
+            \url{http://www.buildyourownlisp.com}
+
+            \url{http://www.indiebound.org/book/9781501006623}
+        \end{itemize}
 \end{appendices}
 
 
