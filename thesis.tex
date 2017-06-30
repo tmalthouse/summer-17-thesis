@@ -325,7 +325,7 @@ Let's imagine the components of an n-body simulator. We clearly need to define s
 
 In the past, to write a physical simulation involving vector calculations, a programmer would have to create their own definition of a vector using a \code{struct}, like we did to define a \code{Body} (a sample definition is shown in \ref{struct-vector}). They would be responsible for coding even the most basic operations---like addition and scalar multiplication---by hand, and this code would be executed like any other, with the normal overhead of a function call. However, recent x86-64 processors (anything made by Intel in the last decade) have a single-instruction, multiple-data (SIMD) coprocessor \citep{intel-simd}, which is designed to perform a given operation on multiple numbers simultaneously.
 
-\lstinputlisting[caption={A definition\label{struct-vector}}]{code_snippets/struct-vector.c}
+\lstinputlisting[caption={An old-style definition of a vector\label{struct-vector}}]{code_snippets/struct-vector.c}
 
 
 \subsection{SIMD}
@@ -353,7 +353,7 @@ Although these types are meant to serve as vectors, many useful vector operation
     }
 \end{lstlisting}
 
-Some operations are already predefined. Since these vectors follow the SIMD model, any operation that acts on each element individually is trivial for the compiler to handle. Therefore, all of the normal C operators are valid for vectors. Sometimes, like in the case of addition or scalar multiplication, this behavior is normal and expected, and provides a useful speed improvement over a software-based method. However, some operators make no sense under this model yet are defined anyways. For example, a vector space is not an ordered field (as we learned in linear algebra). There is no good way to order or sort vectors. And yet the \code{< >} operators are defined for vectors, behaving as shown in listing \ref{operators}. This behavior can be a little tricky, especially if an operator behaves unexpectedly.
+Some operations are already predefined. Since these vectors follow the SIMD model, any operation that acts on each element individually is trivial for the compiler to handle. Therefore, all of the normal C operators are valid for vectors. Sometimes, like in the case of addition or scalar multiplication, this behavior is normal and expected, and provides a useful speed improvement over a software-based method. However, some operators make no sense under this model yet are defined anyways. For example, a vector space is not an ordered field (as we learned in linear algebra). There is no good way to order or sort vectors. And yet the \code{< >} operators are defined for vectors, behaving as shown in listing \ref{operators}. This behavior can be a little tricky, especially when an operator behaves unexpectedly.
 
 \begin{lstlisting}[caption={Some operations aren't especially useful\label{operators}}]
     (vec3){0,5,8} > (vec3){3,4,8} == (vec3){false, true, false};
@@ -363,33 +363,33 @@ Some operations are already predefined. Since these vectors follow the SIMD mode
 
 \subsection{Performance Advantages}
 
-The best way to measure the performance of SIMD vectors is to write a simple program and time it, both with and without hardware vectors enabled. looking at the assembly output of [[def?]] gcc However,  can also provide an idea of relative performance. For example, listing \ref{unopt-assembly} shows the code for a performance critical loop that calculates force, compiled with the option \texttt{-Ofast}---maximum optimization, but with software-based vectors.
+Now that we have our two ways of defining vectors, we need to compare their performance. The best way to measure the performance of various kinds of vectors is to write a simple program and time it, both with and without hardware vectors enabled. However, looking at the assembly output of the compiler can also provide valuable information, since each instruction has a similar execution time. For example, listing \ref{unopt-assembly} shows the code for a performance critical loop that calculates force, compiled with the option \code{-Ofast}---which enables maximum optimizations, but still uses the old-style vectors from earlier.
 
-Listing \ref{opt-assembly}, on the other hand, has been compiled with vector support---with options \texttt{-Ofast -march=native} telling the compiler to take advantage of any and all CPU features that could be useful. It is about two-thirds as long as the fastest possible software version, which generally corresponds to a 33\% performance increase---a huge boon in code that runs tens of millions of times per second. Rows and rows of near-identical \texttt{add} and \texttt{mov} calls are replaced by a single specialized call to \texttt{vfmadd231sd}, which performs all those additions simultaneously.
+Listing \ref{opt-assembly}, on the other hand, has been compiled with vector support---using options \code{-Ofast -march=native} telling the compiler to take advantage of any and all CPU features that could be useful. It is about two-thirds as long as the fastest possible software version, which generally corresponds to a 33\% performance increase---a huge boon in code that runs tens of millions of times per second. Rows and rows of near-identical \code{add} and \code{mov} calls are replaced by a single specialized call to \code{vfmadd231sd}, a vector-based instruction that performs all those operations simultaneously.
 
 [[Need a lot of help with these listing --> if not they go to the appendix]]
 
 
-\lstinputlisting[caption={The optimized assembly for a critical loop, without SIMD vector support\label{unopt-assembly}},language={[x64]Assembler}]
+\lstinputlisting[caption={The optimized assembly for a critical loop, without SIMD vector support. Don't worry if you can't understand this---neither can I. The important thing is its relative length.\label{unopt-assembly}},language={[x64]Assembler}]
 {code_snippets/Oserial.s}
 
 \lstinputlisting[caption={The same code, with SIMD vectors\label{opt-assembly}},
                     language={[x64]Assembler}]{code_snippets/Ofast.s}
 
 \subsection{Disadvantages}
-There is a good reason SIMD support is not enabled by default. Because its instructions are not part of the \texttt{x86-64} standard, various chipset manufacturers may implement the fe[[e]]ature differently (or not enable it at all.) The \texttt{-march=native} flag we passed to the compiler voids any guarantee that the resulting binary be able to run on any computer running the same operating system and instruction set. We could build the non-SIMD code in 32-bit mode and load the resulting binary onto a computer from the early 90s, and it would (probably) run. Trying the same with the SIMD-enabled binary may throw an error similar to the one seen in \ref{SIGILL}, especially on old or lower-end CPUs.
+There is a good reason SIMD support is not enabled by default. Because its instructions are not part of the \texttt{x86-64} standard, various chipset manufacturers may implement the feature differently (or not enable it at all.) The \texttt{-march=native} flag we passed to the compiler voids any guarantee that the resulting binary be able to run on any computer running the same operating system and instruction set. We could build the non-SIMD code in 32-bit mode and load the resulting binary onto a computer from the early 90s, and it would (probably) run. Trying the same with the SIMD-enabled binary may throw an error similar to the one seen in \ref{SIGILL}, especially on old or lower-end CPUs.
 
-\begin{lstlisting}[caption={An error thrown by an unsupported instruction on OS X\label{SIGILL}}]
+\begin{lstlisting}[caption={An error thrown by an unsupported instruction on OS X. Running vector code on an unsupported processor would lead to something like this.\label{SIGILL}}]
 	45584 illegal hardware instruction  ./a.out
 \end{lstlisting}
 
 \section{The Tree Algorithm}
 
-[[much better section below]]
+By implementing hardware-based vectors, we've sped up our force-calculating function by nearly 30\%. However, running that function still takes \emph{some} amount of time, and that will remain true no matter how much we optimize it. We can---and should---fiddle around with low-level assembly all day, but at some point that strategy faces diminishing returns. There are only so many optimizations that can be squeezed out of a piece of code, and at some point we will reach the shortest possible runtime for an algorithm. At that point, the only way to speed up our computation is to do less of it, replacing chunks of calculations with good-enough approximations that take a fraction of the time to calculate.
 
-When trying to calculate the behavior of a body in a field, the simplest way is to calculate the force on that body from every other body that makes up that field. This strategy is easy to implement---the only relevant equations are from Physics 10[[1]]. as the number of bodies to be considered grows [[ However, ]], the required number of computations skyrockets, becoming untenable on even the most powerful computers. With modern astrophysical simulations often including over a million bodies, this na\"ive approach is unworkable on all but the largest computers. In technical terms, this algorithm is said to have a \emph{time efficiency} of O$(n^2)$, which means that, as the number of bodies doubles, the number of calculations quadruples.
+When trying to calculate the behavior of a body in a field, the simplest way is to calculate the force on that body from every other body that makes up that field. This strategy is easy to implement---the only relevant equations are from Physics 101. However, as the number of bodies to be considered grows, the required number of computations skyrockets, becoming untenable on even the most powerful computers. In technical terms, this algorithm is said to have a \emph{time efficiency} of O$(n^2)$, which means that, as the number of bodies doubles, the number of calculations quadruples.
 
-We clearly need to find a way to reduce the number of calculations. Using the system in figure \ref{treecode-basic} as an example, we see that each body requires 79 calculations---a good baseline to work from. Recall from Physics 10[[1]] that, as one moves further away, the forces exerted by two identical bodies near each other converge. It follows that, if distant collections of bodies could be replaced with singular large bodies, the number of calculations could be sharply reduced without significantly impacting accuracy. Figure \ref{treecode-merged} shows an example of this, replacing a cluster of 10 distant bodies and reducing the number of calculations by about 15\%---with only one replacement.
+We clearly need to find a way to reduce the number of calculations. Using the system in figure \ref{treecode-basic} as an example, we see that each body requires 79 calculations---a good baseline to work from. Recall from Physics 101 that, as one moves further away, the forces exerted by two identical bodies near each other converge. It follows that, if distant collections of bodies could be replaced with singular large bodies, the number of calculations could be sharply reduced without significantly impacting accuracy. Figure \ref{treecode-merged} shows an example of this, replacing a cluster of 10 distant bodies and reducing the number of calculations by about 15\%---with only one replacement.
 
 \begin{figure}[p]
 	\includegraphics{imgs/treecode-basic}
